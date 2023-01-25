@@ -30,6 +30,10 @@ func (c *Client) FetchPrice(ctx context.Context, coin string) (*types.CoinPriceR
 		return nil, err
 	}
 
+	if resp.StatusCode != http.StatusOK {
+		return nil, fmt.Errorf("service responded with code %d", resp.StatusCode)
+	}
+
 	var priceResponse types.CoinPriceResponse
 	if err := json.NewDecoder(resp.Body).Decode(&priceResponse); err != nil {
 		return nil, err

@@ -2,7 +2,7 @@ package main
 
 func main() {
 	// c := client.New("http://localhost:3000")
-	// resp, err := c.FetchPrice(context.Background(), "ETH")
+	// resp, err := c.FetchPrice(context.Background(), "BTC")
 	// if err != nil {
 	// 	log.Fatalf("Error : %v", err)
 	// }
