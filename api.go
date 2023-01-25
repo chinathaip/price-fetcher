@@ -4,13 +4,9 @@ import (
 	"context"
 	"net/http"
 
+	"github.com/chinathaip/price-fetcher/types"
 	"github.com/labstack/echo/v4"
 )
-
-type CoinPriceResponse struct {
-	Name  string  `json:"name"`
-	Price float64 `json:"price"`
-}
 
 type JSONAPIServer struct {
 	addr string
@@ -38,7 +34,7 @@ func (server *JSONAPIServer) handleFetchPrice(c echo.Context) error {
 		return echo.NewHTTPError(http.StatusNotFound, err.Error())
 	}
 
-	resp := CoinPriceResponse{Name: coin, Price: price}
+	resp := types.CoinPriceResponse{Name: coin, Price: price}
 
 	return c.JSON(http.StatusOK, resp)
 }
