@@ -37,7 +37,7 @@ jobs:
         with:
           context: .
           tags: |
-            ghcr.io/chinathaip/testargocd:${{ env.GITHUB_SHA }}
+            ghcr.io/chinathaip/price-fetcher:${{ env.GITHUB_SHA }}
           # build on feature branches, push only on main branch
           push: ${{ github.ref == 'refs/heads/main' }}
 
